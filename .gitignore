@@ -1,0 +1,14 @@
+# Flutter
+.dart_tool/
+.build/
+.packages
+pubspec.lock
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
