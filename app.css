@@ -1,0 +1,113 @@
+/*
+  PulsePlay — App shell & screen layout
+  Mobile-first, centered, responsive. Screens are full-viewport
+  panels swapped in/out by the Screen Manager.
+*/
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.app-root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: var(--space-6) var(--space-5);
+  background-color: var(--color-background);
+}
+
+.screen__content {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-5);
+}
+
+/* Splash screen */
+.splash-screen__mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.splash-screen__title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  letter-spacing: -0.01em;
+}
+
+.splash-screen__tagline {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+}
+
+.splash-screen__loading {
+  margin-top: var(--space-6);
+}
+
+/* Generic placeholder screen layout (Adventure / Reward in this sprint) */
+.placeholder-screen__eyebrow {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  background-color: var(--color-text);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+}
+
+.placeholder-screen__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.placeholder-screen__body {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+}
+
+.placeholder-screen__card {
+  width: 100%;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-base);
+  padding: var(--space-6) var(--space-5);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+@media (min-width: 600px) {
+  .splash-screen__title {
+    font-size: 2.75rem;
+  }
+
+  .placeholder-screen__title {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "pulseplay",
+  "version": "0.1.0-alpha",
+  "description": "PulsePlay - Play. Eat. Repeat. A mobile-first workplace gaming platform.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
