@@ -14,17 +14,30 @@ frameworks.
 
 ## Sprint status
 
-**Sprint 01 — GP-001: Project Bootstrap**
+**Sprint 01 — GP-001: Project Bootstrap** ✅
 
-This sprint establishes the project skeleton, the Screen Manager, the
-shared component library, and the Splash screen.
+- Screen Manager (register / show / hide / transition)
+- Splash screen with auto-transition
+- Shared component library foundation
 
-- ✅ Screen Manager (register / show / hide / transition) — fully implemented
-- ✅ Splash screen with auto-transition
-- ✅ Adventure & Reward screens — wired up as real, navigable destinations
-- 🚧 State Manager — placeholder, scoped for a future sprint
-- 🚧 Animation Manager — placeholder, scoped for a future sprint
-- 🚧 Storage Manager — placeholder, scoped for a future sprint
+**Sprint 02 — GP-002: First Playable Experience** ✅
+
+- Adventure screen replaced with the first playable loop: drag any
+  food item onto Pogo to feed him
+- Pointer-based drag & drop (`FoodItem`), works for mouse, touch, and pen
+- Pogo reacts with a happy scale-and-bounce on a successful feed
+- Peanut counter (`TopBar`) increases with a small "bump" animation
+- Reward screen shows the peanuts just earned and returns to Splash
+- `AudioManager` placeholder added — no sound yet, per scope
+- 🚧 State Manager — still a placeholder, scoped for a future sprint
+- 🚧 Animation Manager — still a placeholder, scoped for a future sprint
+- 🚧 Storage Manager — still a placeholder, scoped for a future sprint
+
+> Note: `GameSession` (`src/state/GameSession.js`) is a small,
+> sprint-scoped data holder for peanuts/streak — not one of the four
+> architectural managers. It exists only because `StateManager` is
+> still a placeholder; its responsibilities should move into
+> `StateManager` once that's implemented.
 
 ## Getting started
 
@@ -51,32 +64,39 @@ prototype/
 │   └── favicon.svg
 │
 ├── src/
-│   ├── assets/                # Static assets (images, icons, etc.)
+│   ├── assets/                  # Static assets (images, icons, etc.)
 │   │
-│   ├── components/             # Small, reusable UI building blocks
+│   ├── components/              # Small, reusable UI building blocks
 │   │   ├── Button.js
 │   │   ├── Counter.js
+│   │   ├── FoodItem.js          # Draggable food piece (GP-002)
 │   │   ├── LoadingDots.js
-│   │   └── Pogo.js
+│   │   ├── Pogo.js
+│   │   ├── SpeechBubble.js      # GP-002
+│   │   └── TopBar.js            # Peanuts + streak display (GP-002)
 │   │
 │   ├── managers/                # Application-level systems
-│   │   ├── BaseScreen.js        # Contract every screen implements
-│   │   ├── ScreenManager.js     # Implemented this sprint
-│   │   ├── StateManager.js      # Placeholder
 │   │   ├── AnimationManager.js  # Placeholder
+│   │   ├── AudioManager.js      # Placeholder (GP-002)
+│   │   ├── BaseScreen.js        # Contract every screen implements
+│   │   ├── ScreenManager.js     # Implemented
+│   │   ├── StateManager.js      # Placeholder
 │   │   └── StorageManager.js    # Placeholder
 │   │
 │   ├── screens/                 # Full-screen views
-│   │   ├── SplashScreen.js
-│   │   ├── AdventureScreen.js
-│   │   └── RewardScreen.js
+│   │   ├── AdventureScreen.js   # First playable experience (GP-002)
+│   │   ├── RewardScreen.js      # GP-002
+│   │   └── SplashScreen.js
+│   │
+│   ├── state/
+│   │   └── GameSession.js       # Sprint-scoped session data (GP-002)
 │   │
 │   ├── styles/
-│   │   ├── reset.css
-│   │   ├── variables.css        # Design tokens
 │   │   ├── animations.css
+│   │   ├── app.css
 │   │   ├── components.css
-│   │   └── app.css
+│   │   ├── reset.css
+│   │   └── variables.css        # Design tokens
 │   │
 │   ├── App.js                   # Composition root
 │   └── main.js                  # Vite entry point
